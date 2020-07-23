@@ -1,3 +1,7 @@
-#Chaluntron ketkaew
+# Chaluntorn Katekaew
 
-##Hello gry we have a give for you!!!
+## Profile
+
+    - Name : Chaluntorn
+    - Surname : katekaew
+    - GitNameInProject : kchaluntorn , thanaha2525
