@@ -5,6 +5,7 @@
 - 6002041620012  Kittithach  playkeaw
 - 6002041630026  Noppakrit   Kasiansin
 - 6002041620047  Thanawit    Sriprapha
+- 6002041610076  Rungnapa    Ketchang
 
 ## Reference
   <https://github.com/prawee/information-security>
