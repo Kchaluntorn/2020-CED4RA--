@@ -24,7 +24,7 @@
     }
 
     /* Side Navigation */
-    @@media(min-width:768px) {
+    @media(min-width:768px) {
         .tohide {
             display: none;
         }
@@ -102,7 +102,7 @@
 
     .top-nav>li {
         display: inline-block;
-        float: left;
+        
     }
 
     .top-nav>li>a {
