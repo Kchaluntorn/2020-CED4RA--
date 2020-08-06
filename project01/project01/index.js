@@ -1,9 +1,20 @@
-const express = require("express");
+const express = require("express"); //เรียกโมดูล express
+const app = express(); // ให้ตัวแปลapp เรียกใช้งานmodule express
+const bodyParser = require("body-parser"); //เรียกโมดูล body-parser module ที่ไว้รับ req body
 const path = require("path");
-const bodyParser = require("body-parser");
+const session = require("express-session"); // เรียก module express session
+var fileupload = require("express-fileupload"); // เรียก module file upload
+
+app.use(
+  session({
+    secret: "secret",
+    resave: true,
+    saveUninitialized: true,
+    login: false,
+  })
+);
 
 const auth = require("./routes/auth");
-const app = express();
 
 app.use(bodyParser.json()); // ให้req ใช้งาน json
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -14,11 +25,10 @@ app.use(express.static(path.join(__dirname, "views")));
 require("./routes/auth")(app);
 require("./routes/home")(app);
 
-
-app.listen(7777, function(err) {
-    if (!err) {
-        console.log("localhost:7777");
-    } else {
-        console.log(err);
-    }
+app.listen(7777, function (err) {
+  if (!err) {
+    console.log("localhost:7777");
+  } else {
+    console.log(err);
+  }
 });
