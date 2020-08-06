@@ -11,14 +11,13 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, "views")));
+require("./routes/auth")(app);
 
-const login = require("./routes/auth");
-app.use(login);
 
-app.listen(7777, function (err) {
-  if (!err) {
-    console.log("localhost:7777");
-  } else {
-    console.log(err);
-  }
+app.listen(7777, function(err) {
+    if (!err) {
+        console.log("localhost:7777");
+    } else {
+        console.log(err);
+    }
 });
