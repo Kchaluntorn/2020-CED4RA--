@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 06, 2020 at 06:44 AM
+-- Generation Time: Aug 06, 2020 at 07:02 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.5
 
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `usertable`
 --
+CREATE DATABASE IF NOT EXISTS `usertable` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `usertable`;
 
 -- --------------------------------------------------------
 
@@ -27,6 +29,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `user`
 --
 
+DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `id` int(11) NOT NULL,
   `username` varchar(100) NOT NULL,
