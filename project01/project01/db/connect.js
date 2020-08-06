@@ -6,7 +6,7 @@ const db = () => {
             host: 'localhost',
             user: 'root',
             password: '',
-            database: 'dbuser',
+            database: 'usertable',
         },
         console.log('connect success')
     );
