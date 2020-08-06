@@ -28,7 +28,7 @@ const postRegister = (req, res) => {
         }
         const newpass = hashPassword(pass);
 
-        const qt = `insert into user (username,email,password,status,name,surname,github) values ('${email}','${email}','${pass}',0,'${name}','${surname}','${gitname}')`;
+        const qt = `insert into user (username,email,password,status,name,surname,github) values ('${email}','${email}','${newpass}',0,'${name}','${surname}','${gitname}')`;
         db().query(qt, (err, rs) => {
             if (err) {
                 console.log(err);
