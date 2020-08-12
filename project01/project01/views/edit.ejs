@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+  </head>
+  <style>
+    p {
+      font-family: cursive;
+      margin-bottom: 0px;
+      font-size: 20px;
+    }
+  </style>
+  <body style="background-color: rgb(209, 235, 172);">
+    <div
+      style="
+        font-size: 40px;
+        color: white;
+        background-color: #3d9a40;
+        font-family: cursive;
+      "
+    >
+      My Profile
+    </div>
+    <br />
+    <form action="/editProfile" method="POST">
+      <table border="0" width="50%" bgcolor="white" style="margin-left: 10px;">
+        <colgroup>
+          <col width="30%" />
+          <col width="15%" />
+        </colgroup>
+        <tr>
+          <td colspan="3">
+            <p
+              style="
+                margin-left: 15px;
+                font-size: 32px;
+                font-weight: bold;
+                color: #3d9a40;
+              "
+            >
+              Edit Profile
+            </p>
+            <br />
+            <div><%= ms %></div>
+          </td>
+        </tr>
+        <tr>
+          <td rowspan="5" align="center">
+            <img
+              src="./92722568_614163609176663_3338349817207776690_n.jpg"
+              width="95%"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p style="font-weight: bold; color: #3d9a40;">Name</p>
+          </td>
+          <td>
+            <input
+              type="text"
+              id="editname"
+              name="name"
+              size="30"
+              placeholder="Enter your name."
+              value="<%= rs.name %>"
+              style="
+                color: gray;
+                background-color: rgb(224, 241, 199);
+                border: 0;
+              "
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p style="font-weight: bold; color: #3d9a40;">Surname</p>
+          </td>
+          <td>
+            <input
+              type="text"
+              id="editsur"
+              name="surname"
+              size="30"
+              placeholder="Enter your surname."
+              value="<%= rs.surname %>"
+              style="
+                color: gray;
+                background-color: rgb(224, 241, 199);
+                border: 0;
+              "
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p style="font-weight: bold; color: #3d9a40;">GitHup</p>
+          </td>
+          <td>
+            <input type="hidden" value="<%= rs.id %>" name="id" />
+            <input
+              type="text"
+              id="editgit"
+              name="github"
+              size="30"
+              placeholder="Enter your GitHup name."
+              value="<%= rs.github %>"
+              style="
+                color: gray;
+                background-color: rgb(224, 241, 199);
+                border: 0;
+              "
+            />
+          </td>
+        </tr>
+      </table>
+      <br />
+      <button
+        style="
+          background-color: #3d9a40;
+          color: white;
+          border: 0;
+          font-weight: bold;
+          width: 10%;
+          margin-left: 10px;
+        "
+        type="submit"
+        class="btn btn-danger"
+      >
+        Confirm
+      </button>
+      <a href="/index">
+        <button
+          style="
+            background-color: #dd5644;
+            color: white;
+            border: 0;
+            font-weight: bold;
+            width: 10%;
+            margin-left: 10px;
+          "
+          type="button"
+          class="btn btn-danger"
+        >
+          Back
+        </button></a
+      >
+    </form>
+  </body>
+</html>
