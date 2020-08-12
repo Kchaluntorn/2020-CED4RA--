@@ -58,3 +58,23 @@ module.exports = (app) => {
     });
 
 };
+
+app.post("/edit", function (req, res) {
+  if (req.session.loggedin == true) {
+    const id = req.body.id;
+    db().query(
+      "select id,name,surname,github from user where id = ?",
+      [id],
+      (err, rs) => {
+        if (err) {
+          console.log(err);
+          return;
+        }
+
+        res.render("edit", { rs: rs[0], ms: "" });
+      }
+    );
+  } else {
+    res.redirect("/login");
+  }
+});
