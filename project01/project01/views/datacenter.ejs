@@ -120,23 +120,32 @@
 
               <th style="text-align: center;">
                 <% if(rs.name == name || status == 1){ %>
-                <a href="#">
-                  <i class="fa fa-edit" style="font-size: 20px;"></i>
-                </a>
+                <form method="post" action="/edit">
+                  <input type="hidden" value="<%= rs.id %>" name="id" />
+                  <button type="submit">
+                    <i class="fa fa-edit" style="font-size: 20px;"></i>
+                  </button>
+                </form>
                 <% } %>
-                <a href="#">
-                  <i
-                    class="y fa fa-eye"
-                    style="font-size: 20px; color: rgb(214, 149, 51);"
-                  ></i>
-                </a>
+                <form method="post" action="/view">
+                  <input type="hidden" value="<%= rs.id %>" name="id" />
+                  <button type="submit">
+                    <i
+                      class="y fa fa-eye"
+                      style="font-size: 20px; color: rgb(214, 149, 51);"
+                    ></i>
+                  </button>
+                </form>
                 <% if(status == 1){ %>
-                <a href="#">
-                  <i
-                    class="y fa fa-trash-o"
-                    style="font-size: 20px; color: red;"
-                  ></i>
-                </a>
+                <form method="post" action="/del">
+                  <input type="hidden" value="<%= rs.id %>" name="id" />
+                  <button type="submit">
+                    <i
+                      class="y fa fa-trash-o"
+                      style="font-size: 20px; color: red;"
+                    ></i>
+                  </button>
+                </form>
                 <% } %>
               </th>
             </tr>
