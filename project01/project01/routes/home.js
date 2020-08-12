@@ -19,6 +19,32 @@ module.exports = (app) => {
       res.redirect("/login");
     }
   });
-  app.post("/editProfile");
-  app.post("/saveEdit");
+  app.post("/editProfile", function (req, res) {
+    if (req.session.loggedin == true) {
+      const data = req.body;
+      console.log(data);
+
+      const qt = `update user set name = '${data.name}', suername='${data.surname}',github='${data.github} where id = '${data.id}''`;
+      console.log(qt);
+      db().query(
+        "update user set name = ?,surname = ?,github = ? where id = ?",
+        [data.name, data.surname, data.github, data.id],
+        (err, rs) => {
+          if (!err) {
+            console.log(rs);
+            const qt = `select * from user where id = ${data.id}`;
+            db().query(qt, (err, rs) => {
+              res.render("edit", { rs: rs[0], ms: "Update successfully" });
+            });
+          } else {
+            console.log(err);
+            return;
+          }
+        }
+      );
+    } else {
+      res.redirect("/login");
+    }
+  });
 };
+
