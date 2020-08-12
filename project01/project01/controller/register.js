@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt');
 const md5 = require('md5')
 
 const register = (req, res) => {
-    res.render('register')
+    res.render('register', { csrfToken: req.csrfToken() })
 };
 const postRegister = (req, res) => {
     const name = req.body.name;

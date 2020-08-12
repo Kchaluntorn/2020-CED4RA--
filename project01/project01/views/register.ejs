@@ -29,6 +29,7 @@
             <div class="form">
                 <h1>Register</h1>
                 <form class="/register" method="POST">
+                    <input type="hidden" value="<%= csrfToken %>" name="_csrf" />
                     <input type="email" placeholder="E - mail" name="email" required/>
                     <input type="gitname" placeholder="Git Name" name="gitname" required/>
                     <input type="name" placeholder="Name" name="name" required/>
