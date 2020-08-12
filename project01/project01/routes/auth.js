@@ -9,6 +9,7 @@ module.exports = (app) => {
   app.get("/logout", (req, res) => {
     req.session.loggedin = false; // ให้ session loggedin = false
     req.session.username = ""; // ให้ session username = ""
+    req.session.status = "";
     res.redirect("/login"); // เปิดหน้า index
   });
 };

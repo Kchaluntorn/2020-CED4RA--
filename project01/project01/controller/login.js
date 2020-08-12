@@ -4,7 +4,10 @@ const bcrypt = require("bcrypt");
 const md5 = require("md5");
 
 const login = (req, res) => {
-  res.render("Login");
+  req.session.loggedin = false; // ให้ session loggedin = false
+  req.session.username = ""; // ให้ session username = ""
+  req.session.status = "";
+  res.render("Login", { message: "" });
 };
 
 const postLogin = (req, res) => {
@@ -41,6 +44,8 @@ const postLogin = (req, res) => {
           const status = (req.session.status = rs[0].status); // ให้session status เก็บ status
 
           res.redirect("/index");
+        } else {
+          res.render("Login", { message: "username or password worng" });
         }
       } else {
         res.render("Login", { message: "username or password worng" });

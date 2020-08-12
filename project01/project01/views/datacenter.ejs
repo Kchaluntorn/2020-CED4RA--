@@ -119,7 +119,7 @@
               <th><%= rs.surname %></th>
 
               <th style="text-align: center;">
-                <% if(rs.name == name){ %>
+                <% if(rs.name == name || status == 1){ %>
                 <a href="#">
                   <i class="fa fa-edit" style="font-size: 20px;"></i>
                 </a>
@@ -130,7 +130,7 @@
                     style="font-size: 20px; color: rgb(214, 149, 51);"
                   ></i>
                 </a>
-                <% if(rs.status == 1){ %>
+                <% if(status == 1){ %>
                 <a href="#">
                   <i
                     class="y fa fa-trash-o"
