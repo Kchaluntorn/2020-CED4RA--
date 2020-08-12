@@ -5,6 +5,9 @@ const path = require("path");
 const session = require("express-session"); // เรียก module express session
 var fileupload = require("express-fileupload"); // เรียก module file upload
 
+const csrf = require("csurf");
+const fromParser = bodyParser.urlencoded({ extended: false });
+
 app.use(
   session({
     secret: "secret",
@@ -22,6 +25,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, "views")));
+
+app.use(cookieParser());
 require("./routes/auth")(app);
 require("./routes/home")(app);
 
