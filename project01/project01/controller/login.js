@@ -16,8 +16,7 @@ const postLogin = (req, res) => {
   var username = req.body.username;
   var password = req.body.password;
 
-  const qs = `select * from user where username = '${username}'`;
-  db().query(qs, (err, rs) => {
+  db().query("select * from user where username =?", [username], (err, rs) => {
     if (err) {
       console.log(err);
       return;
