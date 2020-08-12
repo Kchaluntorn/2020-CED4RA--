@@ -31,6 +31,7 @@
                 <div><%= message %></div>
                 <div></div>
                 <form class="login-form" method="POST">
+                    <input type="hidden" value="<%= csrfToken %>" name="_csrf" />
                     <input type="email" placeholder="E - mail" id="loginemail" name="username" required />
                     <input type="password" placeholder="password" id="loginpass" name="password" required />
                     <button>login</button>

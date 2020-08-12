@@ -1,12 +1,13 @@
-const express = require("express"); //เรียกโมดูล express
-const app = express(); // ให้ตัวแปลapp เรียกใช้งานmodule express
-const bodyParser = require("body-parser"); //เรียกโมดูล body-parser module ที่ไว้รับ req body
-const path = require("path");
-const session = require("express-session"); // เรียก module express session
-var fileupload = require("express-fileupload"); // เรียก module file upload
-
+const express = require("express");
 const csrf = require("csurf");
-const fromParser = bodyParser.urlencoded({ extended: false });
+const app = express();
+const bodyParser = require("body-parser");
+const path = require("path");
+const session = require("express-session");
+const cookieParser = require("cookie-parser");
+
+const csrfProtect = csrf({ cookie: true });
+const formParser = bodyParser.urlencoded({ extended: false });
 
 app.use(
   session({
@@ -27,8 +28,10 @@ app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, "views")));
 
 app.use(cookieParser());
+
 require("./routes/auth")(app);
 require("./routes/home")(app);
+require("./routes/test")(app);
 
 app.listen(7777, function (err) {
   if (!err) {

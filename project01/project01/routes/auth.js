@@ -1,9 +1,13 @@
+const csrf = require("csurf");
+const bodyParser = require("body-parser");
+const csrfProtect = csrf({ cookie: true });
+const formParser = bodyParser.urlencoded({ extended: false });
 const login = require("../controller/login");
 const register = require("../controller/register");
 
 module.exports = (app) => {
-  app.get("/login", login);
-  app.post("/login", login.postLogin);
+  app.get("/login", csrfProtect, login);
+  app.post("/login", formParser, csrfProtect, login.postLogin);
   app.get("/register", register);
   app.post("/register", register.postRegister);
   app.get("/logout", (req, res) => {

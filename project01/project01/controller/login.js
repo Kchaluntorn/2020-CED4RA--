@@ -7,10 +7,12 @@ const login = (req, res) => {
   req.session.loggedin = false; // ให้ session loggedin = false
   req.session.username = ""; // ให้ session username = ""
   req.session.status = "";
-  res.render("Login", { message: "" });
+  console.log(req.csrfToken());
+  res.render("Login", { message: "", csrfToken: req.csrfToken() });
 };
 
 const postLogin = (req, res) => {
+  console.log("token" + req.body._csrf);
   var username = req.body.username;
   var password = req.body.password;
 
@@ -45,10 +47,16 @@ const postLogin = (req, res) => {
 
           res.redirect("/index");
         } else {
-          res.render("Login", { message: "username or password worng" });
+          res.render("Login", {
+            message: "username or password worng",
+            csrfToken: req.csrfToken(),
+          });
         }
       } else {
-        res.render("Login", { message: "username or password worng" });
+        res.render("Login", {
+          message: "username or password worng",
+          csrfToken: req.csrfToken(),
+        });
       }
     }
   });
