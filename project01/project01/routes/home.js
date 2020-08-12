@@ -47,7 +47,7 @@ module.exports = (app) => {
     });
     app.post("/view", (req, res) => {
         const id = req.body.id;
-        const qt = "select * from user where id = id ";
+        const qt = `select * from user where id = ${id}`;
 
         db().query(qt, (err, rs) => {
             if (err) {
